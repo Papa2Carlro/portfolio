@@ -1,7 +1,6 @@
 // eslint-disable
 const express = require('express')
 const router = express.Router()
-const passport = require('passport')
 
 // Controller
 const PostController = require('../../controller/post.controller')
@@ -20,7 +19,7 @@ router.get('/all', PostController.getPost)
  * @description Get post by id
  * */
 // api/post/all/:id
-router.get('/all/:id', passport.authenticate('jwt', {session: false}), PostController.getPostById)
+router.get('/all/:id', PostController.getPostById)
 
 // POST
 /**
@@ -29,7 +28,7 @@ router.get('/all/:id', passport.authenticate('jwt', {session: false}), PostContr
  * @description Creates a new post
  * */
 // api/post/create
-router.post('/create', passport.authenticate('jwt', {session: false}), PostController.createPost)
+router.post('/create', PostController.createPost)
 
 // PUT
 /**
@@ -38,7 +37,7 @@ router.post('/create', passport.authenticate('jwt', {session: false}), PostContr
  * @description Edit a post
  * */
 // api/post/edit
-router.put('/edit/:id', passport.authenticate('jwt', {session: false}), PostController.editPost)
+router.put('/edit/:id', PostController.editPost)
 
 // DELETE
 /**
@@ -46,7 +45,7 @@ router.put('/edit/:id', passport.authenticate('jwt', {session: false}), PostCont
  * @description Removes a post by its id
  * */
 // api/post/:id
-router.delete('/:id', passport.authenticate('jwt', {session: false}), PostController.removePost)
+router.delete('/:id', PostController.removePost)
 
 // Export the Router
 module.exports = router

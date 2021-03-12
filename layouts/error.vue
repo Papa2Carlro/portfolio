@@ -1,8 +1,6 @@
 /* eslint-disable */
 <template>
   <div>
-    <Header/>
-
     <section class="error">
       <div class="error__main">
         <h1 class="error__main-title">
@@ -16,23 +14,18 @@
           {{ error.message }}
         </p>
         <nuxt-link v-if="error.statusCode === 404" class="error__main-button btn btn--green btn--lg1" to="/">
-          to the webshop
+          Back
         </nuxt-link>
       </div>
 
       <div class="error__bg">
-        <img src="~/static/image/bg/bg-3.png" alt="">
+
       </div>
     </section>
   </div>
 </template>
 <script>
-import Header from '~/components/Header.vue'
-
 export default {
-  components: {
-    Header
-  },
   props: ['error']
 }
 </script>

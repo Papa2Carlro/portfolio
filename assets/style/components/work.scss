@@ -1,0 +1,503 @@
+.work {
+    background: $blue2;
+    position: relative;
+
+    &__body {
+        position: relative;
+        z-index: 1;
+
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+
+        padding: 90px 0 100px;
+
+        &-title {
+            text-align: center;
+            margin-bottom: 75px;
+            @include title;
+        }
+    }
+
+    &__slider {
+        $slider: &;
+        $body: 1300px;
+        flex: 1;
+
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-body {
+            width: $body;
+            height: -webkit-fill-available;
+        }
+
+        &-bg {
+            top: 0;
+            left: 0;
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            user-select: none;
+            pointer-events: none;
+
+            object-fit: cover;
+        }
+
+        &-control {
+            $margin: 50px;
+            width: 65px;
+            height: 100px;
+            cursor: pointer;
+
+            padding: 0 10px;
+            user-select: none;
+            transition: .3s 0s;
+
+            position: relative;
+            z-index: 5;
+
+            &--left {
+                margin-right: $margin;
+            }
+
+            &--right {
+                margin-left: $margin;
+            }
+
+            &.disabled {
+                opacity: .5;
+                cursor: not-allowed;
+            }
+        }
+
+        &-sliders {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            transition: .5s 0s;
+        }
+
+        &-info {
+            position: relative;
+            z-index: 2;
+
+            margin-top: auto;
+        }
+
+        &-slide {
+            width: $body;
+            height: 100%;
+            transition: .3s 0s;
+
+            transform: perspective(200px) translateZ(-25px);
+
+            #{$slider} {
+
+                &-main {
+                    box-shadow: 0 0 0 rgba(255, 0, 0, 0);
+
+                    &:after {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+
+            &.active {
+                transform: perspective(0) translateZ(0);
+
+                #{$slider} {
+
+                    &-main {
+                        box-shadow: 0 12px 30px rgba(255, 0, 0, 0.39);
+
+                        &::after {
+                            opacity: 0;
+                            visibility: hidden;
+                        }
+
+                        &::before {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-main {
+            position: relative;
+            overflow: hidden;
+
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            padding: 25px 25px 30px 70px;
+
+            border-radius: 25px;
+            transition: .3s 0s;
+
+            &::after {
+                content: '';
+                border-radius: 25px;
+
+                transition: .7s 0s;
+                position: absolute;
+                z-index: 10;
+
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+
+                background: rgba(115, 164, 214, 0.7);
+            }
+
+            &::before {
+                content: '';
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+
+                width: 100%;
+                height: 100%;
+
+                background: linear-gradient(180deg, rgba(9, 6, 146, 0) 0%, #000000 100%);
+            }
+        }
+
+        &-title {
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 32px;
+            line-height: 32px;
+
+            margin-bottom: 15px;
+        }
+
+        &-description {
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 20px;
+
+            margin-bottom: 15px;
+
+            max-height: 140px;
+            overflow-y: auto;
+        }
+
+        &-link {
+            border-radius: 19px;
+            border: 1px solid #FFFFFF;
+
+            font-family: Raleway, sans-serif;
+            font-weight: bold;
+            font-size: 15px;
+
+            padding: 5px 15px;
+        }
+
+        &-item + &-item {
+            margin-left: 15px;
+        }
+
+        &-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            list-style: none;
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+}
+
+// 1570
+@media screen and (max-width: 1570px) {
+    .work {
+
+        &__slider {
+            $body: 1000px;
+
+            &-body {
+                width: $body;
+            }
+
+            &-slide {
+                width: $body;
+            }
+
+            &-control {
+                $margin: 40px;
+                width: 55px;
+                height: 80px;
+
+                padding: 0 8px;
+
+                &--left {
+                    margin-right: $margin;
+                }
+
+                &--right {
+                    margin-left: $margin;
+                }
+            }
+        }
+    }
+}
+
+// 1200
+@include media-breakpoint-down(lg) {
+    .work {
+
+        &__body {
+            padding: 70px 0 80px;
+
+            &-title {
+                margin-bottom: 55px;
+            }
+        }
+
+        &__slider {
+            $body: 750px;
+
+            &-body {
+                width: $body;
+            }
+
+            &-slide {
+                width: $body;
+            }
+
+            &-control {
+                $margin: 40px;
+                width: 55px;
+                height: 80px;
+
+                padding: 0 8px;
+
+                &--left {
+                    margin-right: $margin;
+                }
+
+                &--right {
+                    margin-left: $margin;
+                }
+            }
+        }
+    }
+}
+
+// 992
+@include media-breakpoint-down(md) {
+    .work {
+
+        &__body {
+            padding: 50px 0 65px;
+
+            &-title {
+                margin-bottom: 35px;
+            }
+        }
+
+        &__slider {
+            $body: 550px;
+
+            &-body {
+                width: $body;
+            }
+
+            &-slide {
+                width: $body;
+            }
+
+            &-control {
+                $margin: 25px;
+                width: 45px;
+                height: 65px;
+
+                padding: 0 5px;
+
+                &--left {
+                    margin-right: $margin;
+                }
+
+                &--right {
+                    margin-left: $margin;
+                }
+            }
+
+            &-main {
+                padding: 50% 20px 25px 60px;
+            }
+
+            &-title {
+                font-size: 30px;
+                line-height: 30px;
+            }
+
+            &-description {
+                max-height: 180px;
+                margin-bottom: 20px;
+            }
+
+            &-link {
+                padding: 5px 12px;
+            }
+        }
+    }
+}
+
+// 768
+@include media-breakpoint-down(sm) {
+    .work {
+
+        &__body {
+            padding: 35px 0 40px;
+
+            &-title {
+                margin-bottom: 25px;
+            }
+        }
+
+        &__slider {
+            $body: 470px;
+
+            &-body {
+                width: $body;
+            }
+
+            &-slide {
+                width: $body;
+            }
+
+            &-control {
+                $margin: 20px;
+                width: 30px;
+                height: 55px;
+
+                &--left {
+                    margin-right: $margin;
+                }
+
+                &--right {
+                    margin-left: $margin;
+                }
+            }
+
+            &-main {
+                $border: 20px;
+                padding: 40% 20px 25px 40px;
+                border-radius: $border;
+
+                &:after {
+                    border-radius: $border;
+                }
+            }
+
+            &-title {
+                font-size: 28px;
+                line-height: 28px;
+            }
+
+            &-description {
+                max-height: 200px;
+            }
+
+            &-link {
+                padding: 3px 10px;
+            }
+
+            &-item + &-item {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+// 576
+@media screen and (max-width: 576px) {
+    .work {
+
+        &__slider {
+            $body: 320px;
+
+            &-body {
+                width: $body;
+            }
+
+            &-slide {
+                width: $body;
+            }
+
+            &-control {
+                position: absolute;
+                top: 20px;
+
+                width: 60px;
+                height: 60px;
+                padding: 10px;
+
+                border-radius: 12px;
+                background: rgba($blue2, .5);
+
+                &--left {
+                    left: 15px;
+                }
+
+                &--right {
+                    right: 15px;
+                }
+            }
+
+            &-main {
+                $border: 15px;
+                padding: 55% 10px 15px 20px;
+                border-radius: $border;
+
+                &:after {
+                    border-radius: $border;
+                }
+            }
+
+            &-title {
+                font-size: 26px;
+                line-height: 26px;
+
+                margin-bottom: 15px;
+            }
+
+            &-description {
+                max-height: 220px;
+            }
+        }
+    }
+}

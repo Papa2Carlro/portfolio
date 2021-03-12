@@ -1,22 +1,28 @@
 <template>
-  <div class="home" :class="{isIndex: loader}">
-    <Loader v-if="loader" color="#282932"/>
+  <div class="page" :class="{isIndex: loader}">
 
-    <main v-else class="home__main">
+    <Loader v-if="loader"/>
+
+    <main v-else class="page__main">
+
+      <Work/>
 
     </main>
   </div>
 </template>
 
 <script>
+import Loader from "../components/Loader"
+import Work from "../components/page/Work"
+
 export default {
   name: 'MainPage',
-  components: {},
+  components: {Work, Loader},
   data: () => ({
     loader: true
   }),
-  methods: {
-
+  mounted() {
+    this.loader = false
   }
 }
 </script>
