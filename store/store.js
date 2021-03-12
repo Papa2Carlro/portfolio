@@ -2,6 +2,8 @@
 export const state = () => ({
     projects: [],
 
+    whoIsMe: '',
+
     settings: {}
 })
 
@@ -12,6 +14,10 @@ export const mutations = {
 
     setSetting(state, body) {
         state.settings = body
+    },
+
+    setWhoIsMe(state, body) {
+        state.whoIsMe = body
     }
 }
 
@@ -73,6 +79,12 @@ export const actions = {
         }
 
         commit("setSetting", setting)
+    },
+
+    getWhoMe({commit}){
+        const text = 'Donec sed nisi enim. Donec fermentum rutrum convallis. Quisque lobortis nisl quis vestibulum venenatis. Mauris ac nisl velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam gravida leo id felis rhoncus venenatis. In ut nisl massa. Sed sagittis condimentum rhoncus. Proin pharetra vitae urna in iaculis. Nam ut enim vitae ligula efficitur hendrerit. Suspendisse ornare nibh quis eros aliquet, ultricies vestibulum leo dignissim. Duis quis sapien ac mi eleifend finibus. Phasellus aliquam ac dui ac malesuada. Sed ornare risus finibus justo malesuada interdum.'
+
+        commit("setWhoIsMe", text)
     }
 }
 
@@ -83,6 +95,10 @@ export const getters = {
 
     getSlidedPosition(state) {
         return state.settings.sliderPosition
+    },
+
+    getWhoIsMe(state) {
+        return state.whoIsMe
     }
 }
 
