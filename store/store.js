@@ -4,7 +4,9 @@ export const state = () => ({
 
     whoIsMe: '',
 
-    settings: {}
+    settings: {},
+
+    whyMe: {}
 })
 
 export const mutations = {
@@ -18,6 +20,10 @@ export const mutations = {
 
     setWhoIsMe(state, body) {
         state.whoIsMe = body
+    },
+
+    setWhyMe(state, body) {
+        state.whyMe = body
     }
 }
 
@@ -81,10 +87,39 @@ export const actions = {
         commit("setSetting", setting)
     },
 
-    getWhoMe({commit}){
+    getWhoMe({commit}) {
         const text = 'Donec sed nisi enim. Donec fermentum rutrum convallis. Quisque lobortis nisl quis vestibulum venenatis. Mauris ac nisl velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam gravida leo id felis rhoncus venenatis. In ut nisl massa. Sed sagittis condimentum rhoncus. Proin pharetra vitae urna in iaculis. Nam ut enim vitae ligula efficitur hendrerit. Suspendisse ornare nibh quis eros aliquet, ultricies vestibulum leo dignissim. Duis quis sapien ac mi eleifend finibus. Phasellus aliquam ac dui ac malesuada. Sed ornare risus finibus justo malesuada interdum.'
 
         commit("setWhoIsMe", text)
+    },
+
+    getWhyMe({commit}) {
+        const text = 'Donec sed nisi enim. Donec fermentum rutrum convallis. Quisque lobortis nisl quis vestibulum venenatis. Mauris ac nisl velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam gravida leo id felis rhoncus venenatis. In ut nisl massa. Sed sagittis condimentum rhoncus. Proin pharetra vitae urna in iaculis. Nam ut enim vitae ligula efficitur hendrerit. Suspendisse ornare nibh quis eros aliquet, ultricies vestibulum leo dignissim. Duis quis sapien ac mi eleifend finibus. Phasellus aliquam ac dui ac malesuada. Sed ornare risus finibus justo malesuada interdum.'
+        const contacts = [
+            {
+                title: 'Phone',
+                value: '+380677126286',
+                link: 'tel:+380677126286'
+            },
+            {
+                title: 'Email',
+                value: 'priymak615@gmail.com',
+                link: `mailto:priymak615@gmail.com`
+            },
+            {
+                title: 'GitHub',
+                value: 'Papa2Carlo',
+                link: 'https://github.com/Papa2Carlro'
+            },
+            {
+                title: 'Telegram',
+                value: '@Papa2Carlo',
+                link: 'https://t.me/Papa2Carlo'
+            }
+        ]
+        const skills = ['VueJs', 'Scss', 'NodeJs', 'Git', 'Express']
+
+        commit("setWhyMe", {text, contacts, skills})
     }
 }
 
@@ -99,6 +134,10 @@ export const getters = {
 
     getWhoIsMe(state) {
         return state.whoIsMe
+    },
+
+    getWhyMe(state) {
+        return state.whyMe
     }
 }
 

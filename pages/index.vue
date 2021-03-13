@@ -9,6 +9,8 @@
 
             <Work/>
 
+            <WhyMe/>
+
         </main>
     </div>
 </template>
@@ -17,10 +19,11 @@
 import Loader from "../components/Loader"
 import Work from "../components/section/Work"
 import Who from "../components/section/Who"
+import WhyMe from "../components/section/WhyMe"
 
 export default {
     name: 'MainPage',
-    components: {Who, Work, Loader},
+    components: {WhyMe, Who, Work, Loader},
     data: () => ({
         loader: true
     }),
