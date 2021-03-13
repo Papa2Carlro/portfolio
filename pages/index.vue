@@ -4,12 +4,13 @@
         <Loader v-if="loader"/>
 
         <main v-else class="page__main">
-
             <Who/>
 
             <Work/>
 
             <WhyMe/>
+
+            <ContactMe/>
 
         </main>
     </div>
@@ -20,10 +21,11 @@ import Loader from "../components/Loader"
 import Work from "../components/section/Work"
 import Who from "../components/section/Who"
 import WhyMe from "../components/section/WhyMe"
+import ContactMe from "../components/section/ContactMe"
 
 export default {
     name: 'MainPage',
-    components: {WhyMe, Who, Work, Loader},
+    components: {ContactMe, WhyMe, Who, Work, Loader},
     data: () => ({
         loader: true
     }),
