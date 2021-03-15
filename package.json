@@ -29,7 +29,8 @@
     "nodemailer": "^6.4.16",
     "nuxt": "latest",
     "v-click-outside": "^3.1.2",
-    "vue-awesome-swiper": "^4.1.1"
+    "vue-awesome-swiper": "^4.1.1",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "@nuxt/types": "~2.14.0",

@@ -40,7 +40,8 @@ export default {
   */
 
   plugins: [
-    {src: '@/plugins/vClickOutside', ssr: false}
+    {src: '@/plugins/vClickOutside', ssr: false},
+    {src: '@/plugins/vuelidate'}
   ],
 
   /*

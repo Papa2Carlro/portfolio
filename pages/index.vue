@@ -4,14 +4,13 @@
         <Loader v-if="loader"/>
 
         <main v-else class="page__main">
-            <Who/>
+<!--            <Who/>-->
 
-            <Work/>
+<!--            <Work/>-->
 
-            <WhyMe/>
+<!--            <WhyMe/>-->
 
-            <ContactMe/>
-
+<!--            <ContactMe/>-->
         </main>
     </div>
 </template>

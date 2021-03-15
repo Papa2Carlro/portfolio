@@ -37,12 +37,36 @@
     }
 
     &__image {
+        user-select: none;
+        pointer-events: none;
 
         img {
             width: 100%;
             height: 100%;
 
             object-fit: cover;
+        }
+    }
+
+
+    &__counter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 18px;
+
+        margin-top: 5px;
+        color: $blue3;
+
+        &-value {
+
+            span {
+                opacity: .7;
+            }
         }
     }
 
