@@ -4,6 +4,8 @@
         <Loader v-if="loader"/>
 
         <main v-else class="page__main">
+            <FistSection/>
+
 <!--            <Who/>-->
 
 <!--            <Work/>-->
@@ -21,10 +23,11 @@ import Work from "../components/section/Work"
 import Who from "../components/section/Who"
 import WhyMe from "../components/section/WhyMe"
 import ContactMe from "../components/section/ContactMe"
+import FistSection from "../components/section/First"
 
 export default {
     name: 'MainPage',
-    components: {ContactMe, WhyMe, Who, Work, Loader},
+    components: {FistSection, ContactMe, WhyMe, Who, Work, Loader},
     data: () => ({
         loader: true
     }),

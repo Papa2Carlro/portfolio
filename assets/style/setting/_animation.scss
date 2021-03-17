@@ -1,0 +1,23 @@
+@keyframes dots {
+    0% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+}
+
+@keyframes level1 {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(240deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
