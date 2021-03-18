@@ -4,6 +4,8 @@
 
         <div class="first__content">
 
+            <RtBlock/>
+
             <Central :name="name"/>
 
             <LbBlock/>
@@ -18,12 +20,13 @@
 import Central from "../first/Central"
 import LbBlock from "../first/LbBlock"
 import RbBlock from "../first/RbBlock"
+import RtBlock from "../first/RtBlock"
 
 export default {
     name: 'FistSection',
     data: () => ({
         name: 'Max Priymak'
     }),
-    components: {RbBlock, LbBlock, Central}
+    components: {RtBlock, RbBlock, LbBlock, Central}
 }
 </script>

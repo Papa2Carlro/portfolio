@@ -1,0 +1,50 @@
+.graphic {
+    $parent: &;
+    position: absolute;
+
+    left: 65%;
+    bottom: 70%;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    height: 161px;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 15px;
+
+    &__body {
+        transition: .5s 0s;
+        background: $pink2;
+    }
+
+    &__footer {
+        transition: .2s 0s;
+
+        margin-top: 8px;
+
+        height: 3px;
+        background: $pink2;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+
+        width: 16px;
+
+        &.big {
+
+            #{$parent} {
+
+                &__body,
+                &__footer {
+                    background: $pink3;
+                }
+            }
+        }
+    }
+}
