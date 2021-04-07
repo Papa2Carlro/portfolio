@@ -2,8 +2,6 @@ body {
     background: $bgDarkColor;
     color: $white;
 
-    &.lock-modal,
-    &.lock-panel,
     &.lock {
         overflow: hidden;
     }
@@ -12,8 +10,7 @@ body {
 // 992
 @include media-breakpoint-down(md) {
     body {
-        &.lock-modal,
-        &.lock-panel,
+
         &.lock {
 
         }
@@ -23,8 +20,7 @@ body {
 // 768
 @include media-breakpoint-down(sm) {
     body {
-        &.lock-modal,
-        &.lock-panel,
+
         &.lock {
 
         }
@@ -34,8 +30,7 @@ body {
 // 576
 @media screen and (max-width: 576px) {
     body {
-        &.lock-modal,
-        &.lock-panel,
+
         &.lock {
 
         }
@@ -53,10 +48,6 @@ a {
 
 p {
     margin: 0;
-}
-
-.nuxt-progress {
-    background-color: $green1 !important;
 }
 
 ::-webkit-scrollbar {

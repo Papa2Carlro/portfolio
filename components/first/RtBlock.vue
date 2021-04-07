@@ -1,6 +1,6 @@
 <template>
     <ul class="graphic">
-        <li v-for="(line, index) in lines" :key="index" class="graphic__item" :class="{big: line > 115}">*
+        <li v-for="(line, index) in lines" :key="index" class="graphic__item" :class="{big: line > 115}">
             <div :style="{height: line + 'px'}" class="graphic__body"></div>
 
             <div class="graphic__footer"></div>

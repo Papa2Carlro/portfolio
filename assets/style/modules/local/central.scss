@@ -43,25 +43,6 @@
         }
     }
 
-    &__dot {
-        @include absolut-center;
-
-        height: 100%;
-
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-
-            left: 0;
-
-            width: 100%;
-            background: #fff;
-
-            border-radius: 50%;
-        }
-    }
-
     &__l {
 
         &1 {

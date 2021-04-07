@@ -48,3 +48,31 @@
         }
     }
 }
+
+// 1200
+@include media-breakpoint-down(lg) {
+    .graphic {
+
+    }
+}
+
+// 992
+@include media-breakpoint-down(md) {
+    .graphic {
+
+    }
+}
+
+// 768
+@include media-breakpoint-down(sm) {
+    .graphic {
+
+    }
+}
+
+// 576
+@media screen and (max-width: 576px) {
+    .graphic {
+
+    }
+}

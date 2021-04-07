@@ -1,12 +1,37 @@
-/* eslint-disable */
+import _ from 'lodash'
+
 export const state = () => ({
     projects: [],
 
     whoIsMe: '',
 
-    settings: {},
+    sliderPosition: null,
 
-    whyMe: {}
+    locale: 'ru-Ru',
+    locales: [
+        {
+            label: 'Русский',
+            value: 'ru-Ru'
+        },
+        {
+            label: 'Українська',
+            value: 'uk-Ua'
+        },
+        {
+            label: 'English',
+            value: 'en-En'
+        }
+    ],
+
+    settings: {
+        sliderSection: true,
+        animation: true,
+        sound: true
+    },
+
+    whyMe: {},
+
+    skills: []
 })
 
 export const mutations = {
@@ -14,8 +39,12 @@ export const mutations = {
         state.projects = body
     },
 
-    setSetting(state, body) {
-        state.settings = body
+    setSliderPosition(state, body) {
+        state.sliderPosition = body
+    },
+
+    changeSetting(state, {setting, body}) {
+        state.settings[setting] = body
     },
 
     setWhoIsMe(state, body) {
@@ -24,6 +53,18 @@ export const mutations = {
 
     setWhyMe(state, body) {
         state.whyMe = body
+    },
+
+    setSkills(state, body) {
+        const length = Math.ceil(body.length / 2)
+        const list = []
+
+        body.map((value, index) => list.push({index: index + 1, value}))
+        state.skills = _.chunk(list, length)
+    },
+
+    setLocale(state, locale) {
+        state.locale = locale
     }
 }
 
@@ -80,11 +121,9 @@ export const actions = {
     },
 
     getSetting({commit}) {
-        const setting = {
-            sliderPosition: 1
-        }
+        const sliderPosition = 1
 
-        commit("setSetting", setting)
+        commit("setSliderPosition", sliderPosition)
     },
 
     getWhoMe({commit}) {
@@ -120,6 +159,21 @@ export const actions = {
         const skills = ['VueJs', 'Scss', 'NodeJs', 'Git', 'Express']
 
         commit("setWhyMe", {text, contacts, skills})
+    },
+
+    getSkills({commit}) {
+        const data = [
+            'Lorem dolor sit amet, consectetur adipisicing elit',
+            'Lorem ipsum dolor sit amet, consectetur adipisicing',
+            'Lorem ipsum sit amet, consectetur adipisicing elit',
+            'Lorem ipsum dolor sit amet, consectetur',
+            'Lorem ipsum sit amet, consectetur adipisicing elit',
+            'Lorem ipsum dolor sit amet, ',
+            'Lorem dolor amet, consectetur adipisicing elit',
+            'Lorem ipsum dolor sit consectetur adipisicing elit'
+        ]
+
+        commit('setSkills', data)
     }
 }
 
@@ -129,7 +183,7 @@ export const getters = {
     },
 
     getSlidedPosition(state) {
-        return state.settings.sliderPosition
+        return state.sliderPosition
     },
 
     getWhoIsMe(state) {
@@ -138,6 +192,22 @@ export const getters = {
 
     getWhyMe(state) {
         return state.whyMe
+    },
+
+    getSkills(state) {
+        return state.skills
+    },
+
+    getSetting(state) {
+        return state.settings
+    },
+
+    getLocale(state) {
+        return state.locale
+    },
+
+    getLocales(state) {
+        return state.locales
     }
 }
 

@@ -19,8 +19,6 @@
 
                     <div class="central__dot"></div>
                 </div>
-
-                <div class="central__dots"></div>
             </div>
         </div>
 
@@ -51,8 +49,6 @@
 
                     <div class="central__dot"></div>
                 </div>
-
-                <div class="central__dots"></div>
             </div>
         </div>
     </div>

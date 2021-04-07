@@ -4,15 +4,19 @@
         <Loader v-if="loader"/>
 
         <main v-else class="page__main">
+
+            <Setting />
+
             <FistSection/>
 
-<!--            <Who/>-->
+            <Who/>
 
-<!--            <Work/>-->
+            <Work/>
 
-<!--            <WhyMe/>-->
+            <WhyMe/>
 
-<!--            <ContactMe/>-->
+            <ContactMe/>
+
         </main>
     </div>
 </template>
@@ -24,10 +28,11 @@ import Who from "../components/section/Who"
 import WhyMe from "../components/section/WhyMe"
 import ContactMe from "../components/section/ContactMe"
 import FistSection from "../components/section/First"
+import Setting from "../components/Setting"
 
 export default {
     name: 'MainPage',
-    components: {FistSection, ContactMe, WhyMe, Who, Work, Loader},
+    components: {Setting, FistSection, ContactMe, WhyMe, Who, Work, Loader},
     data: () => ({
         loader: true
     }),

@@ -19,6 +19,27 @@
 
         top: 65%;
         right: 60%;
+        z-index: 1;
+
+        &-panel {
+            position: relative;
+        }
+
+        &-circle {
+            $circle: 10px;
+            position: absolute;
+
+            top: 12px;
+            left: 12px;
+
+            width: $circle;
+            height: $circle;
+
+            background: $white;
+            transition: .4s 0s;
+
+            border-radius: 50%;
+        }
 
         &-body {
             width: 260px;
@@ -100,6 +121,9 @@
 
         top: 0;
         left: 0;
+
+        user-select: none;
+        pointer-events: none;
 
         width: 100%;
         height: 100%;
