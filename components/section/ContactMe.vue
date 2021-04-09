@@ -1,6 +1,5 @@
 <template>
-    <section class="contact section">
-
+    <section class="contact section" :class="className">
         <div class="contact__main">
             <img src="../../static/image/contact/left.svg" alt="" class="contact__vector contact__vector--left">
 
@@ -86,6 +85,7 @@ import {required, minLength} from 'vuelidate/lib/validators'
 export default {
     name: 'ContactMe',
     components: {Footer},
+    props: ['className'],
     data: () => ({
         name: '',
         contact: '',
@@ -97,6 +97,7 @@ export default {
             message: false,
         },
 
+        slideActive: 5,
         textAreaMaxChar: 200
     }),
     validations: {

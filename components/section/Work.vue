@@ -1,5 +1,5 @@
 <template>
-    <section class="work section">
+    <section class="work section" :class="className">
         <div class="work__body">
             <div class="work__body-title">МОИ РАБОТЫ</div>
 
@@ -60,6 +60,7 @@
 <script>
 export default {
     name: 'Work',
+    props: ['className'],
     data: () => ({
         project: [],
         breakpoints: {
@@ -73,7 +74,9 @@ export default {
         arrow: {left: null, right: null},
 
         active: 0,
-        width: 1000
+        width: 1000,
+
+        slideActive: 3,
     }),
     computed: {
         sliders() {

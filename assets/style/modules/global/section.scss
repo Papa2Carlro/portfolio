@@ -1,7 +1,57 @@
 .section {
+    min-width: 100vw;
     min-height: 100vh;
 
     overflow: hidden;
+    transition: .6s 0s;
+
+    z-index: 0;
+
+    &.top,
+    &.isNext,
+    &.isActive,
+    &.isPrev {
+        position: absolute;
+        left: 0;
+    }
+
+    &.isPrev {
+        z-index: 3;
+        animation: slide-t 1.2s;
+    }
+
+    &.isNext {
+        animation: slide-b 1.2s;
+        z-index: 3;
+    }
+
+    &.isActive {
+        top: 0;
+        z-index: 2;
+    }
+
+    &.top {
+        top: 0;
+        z-index: 1;
+    }
+}
+
+@keyframes slide-t {
+    from {
+        top: -100vh;
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes slide-b {
+    from {
+        top: 100vh;
+    }
+    to {
+        top: 0;
+    }
 }
 
 // 1200

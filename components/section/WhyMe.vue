@@ -1,6 +1,5 @@
 <template>
-    <section class="why_me section">
-
+    <section class="why_me section" :class="className">
         <div class="why_me__info">
             <div class="why_me__info-title">почему именно я</div>
 
@@ -41,11 +40,14 @@
 <script>
 export default {
     name: 'WhyMe',
+    props: ['className'],
     data: () => ({
         text: '',
 
         skills: [],
-        contacts: []
+        contacts: [],
+
+        slideActive: 4,
     }),
     created() {
         this.$store.dispatch("store/getWhyMe")

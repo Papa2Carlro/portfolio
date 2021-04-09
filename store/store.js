@@ -23,9 +23,12 @@ export const state = () => ({
         }
     ],
 
+    scrollType: null,
+
     settings: {
         sliderSection: true,
         animation: true,
+        animationAdaptive: true,
         sound: true
     },
 
@@ -43,7 +46,9 @@ export const mutations = {
         state.sliderPosition = body
     },
 
-    changeSetting(state, {setting, body}) {
+    changeSetting(state, {setting, body, adaptive}) {
+        if (setting === 'animation' && !adaptive) state.settings.animationAdaptive = body
+
         state.settings[setting] = body
     },
 
@@ -65,7 +70,7 @@ export const mutations = {
 
     setLocale(state, locale) {
         state.locale = locale
-    }
+    },
 }
 
 export const actions = {
@@ -208,6 +213,21 @@ export const getters = {
 
     getLocales(state) {
         return state.locales
-    }
-}
+    },
 
+    getAnimation(state) {
+        return state.settings.animation
+    },
+
+    getSliderSection(state) {
+        return state.settings.sliderSection
+    },
+
+    getAnimationAdaptive(state) {
+        return state.settings.animationAdaptive
+    },
+
+    getScrollType(state) {
+        return state.scrollType
+    },
+}

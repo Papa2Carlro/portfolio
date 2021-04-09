@@ -4,7 +4,7 @@
     $close: 5px;
     $range: 16px;
     $rangeHeight: 5px;
-    position: absolute;
+    position: fixed;
 
     top: 0;
     left: 0;
@@ -29,9 +29,10 @@
         height: 100vh;
 
         padding: 30px 15px;
+        overflow-y: auto;
 
         background: $blue6;
-        border-right: 4px solid $pink4;
+        border-right: 5px solid $pink4;
 
         transition: .25s 0s;
         box-shadow: 20px 0 20px 0 rgba($green2, 0);
@@ -347,20 +348,301 @@
 // 992
 @include media-breakpoint-down(md) {
     .setting {
+        $btn: 35px;
+        $close: 3px;
+        $panel: 250px;
+        $range: 14px;
+        $rangeHeight: 4px;
 
+        &__btn {
+            max-width: $btn;
+            max-height: $btn;
+
+            margin: 15px 0 0 10px;
+        }
+
+        &__panel {
+            width: $panel;
+            left: -1 * $panel;
+
+            padding: 35px 12px;
+
+            &--open {
+                left: 0;
+            }
+
+            &-close {
+                top: 10px;
+                right: 10px;
+
+                width: 25px;
+                height: 25px;
+
+                &::before,
+                &::after {
+                    width: 100%;
+                    height: $close;
+                }
+            }
+        }
+
+        &__group {
+
+            &-label {
+                font-size: 18px;
+            }
+
+            &-check {
+                $size: 18px;
+                $vertical: 1px;
+                $horizontal: 2px;
+
+                width: 2 * $size + $horizontal * 2;
+                height: $size + $vertical * 2;
+
+                label {
+                    top: $vertical;
+                    left: $horizontal;
+
+                    width: $size;
+                    height: $size;
+                }
+
+                input {
+
+                    &:checked + label {
+                        left: $size + $horizontal;
+                    }
+                }
+            }
+
+            &-range {
+
+                input {
+                    height: $rangeHeight;
+
+                    &::-webkit-slider-thumb {
+                        width: $range;
+                        height: $range;
+                    }
+
+                    &::-moz-range-thumb {
+                        width: $range;
+                        height: $range;
+                    }
+
+                    &:focus {
+
+                        &::-webkit-slider-thumb {
+                            box-shadow: 0 0 0 2px $blue6,
+                            0 0 0 4px $green4;
+                        }
+                    }
+                }
+            }
+
+            & + & {
+                margin-top: 25px;
+            }
+        }
+
+        &__locale {
+
+            &-this {
+                $right: 12px;
+
+                font-size: 20px;
+                line-height: 100%;
+                padding: 6px 16px;
+
+                border: 2px solid $green4;
+
+                &::after,
+                &::before {
+                    width: 10px;
+                    height: 3px;
+                }
+
+                &::after {
+                    right: $right;
+                }
+
+                &::before {
+                    right: $right + 6px;
+                }
+            }
+
+            &-list {
+                border: 2px solid $green4;
+                padding: 0;
+
+                &.isOpen {
+                    top: calc(100% + 4px);
+                }
+            }
+
+            &-item {
+                padding: 8px 0;
+                line-height: 100%;
+
+                font-size: 18px;
+            }
+        }
     }
 }
 
 // 768
 @include media-breakpoint-down(sm) {
     .setting {
+        $btn: 35px;
+        $close: 3px;
+        $panel: 250px;
+        $range: 14px;
+        $rangeHeight: 4px;
 
+        &__btn {
+            max-width: $btn;
+            max-height: $btn;
+
+            margin: 15px 0 0 10px;
+        }
+
+        &__panel {
+            width: $panel;
+            left: -1 * $panel;
+
+            padding: 25px 10px;
+
+            &--open {
+                left: 0;
+            }
+
+            &-close {
+                top: 6px;
+                right: 15px;
+
+                width: 22px;
+                height: 22px;
+
+                &::before,
+                &::after {
+                    height: $close;
+                }
+            }
+        }
+
+        &__group {
+
+            &-title {
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+
+            &-label {
+                font-size: 16px;
+            }
+
+            &-setting {
+
+                & + & {
+                    margin-top: 5px;
+                }
+            }
+
+            &-check {
+                $size: 16px;
+                $vertical: 1px;
+                $horizontal: 2px;
+
+                width: 2 * $size + $horizontal * 2;
+                height: $size + $vertical * 2;
+
+                label {
+                    top: $vertical;
+                    left: $horizontal;
+
+                    width: $size;
+                    height: $size;
+                }
+
+                input {
+
+                    &:checked + label {
+                        left: $size + $horizontal;
+                    }
+                }
+            }
+
+            &-range {
+
+                input {
+                    height: $rangeHeight;
+
+                    &::-webkit-slider-thumb {
+                        width: $range;
+                        height: $range;
+                    }
+
+                    &::-moz-range-thumb {
+                        width: $range;
+                        height: $range;
+                    }
+                }
+
+                label {
+                    font-size: 16px;
+                    min-width: 31px;
+                    margin-left: 6px;
+                }
+            }
+
+            & + & {
+                margin-top: 20px;
+            }
+        }
+
+        &__locale {
+
+            &-this {
+                $right: 12px;
+
+                font-size: 18px;
+                padding: 5px 14px;
+
+                border: 2px solid $green4;
+            }
+
+            &-item {
+                padding: 6px 0;
+                font-size: 16px;
+            }
+        }
     }
 }
 
-// 576
-@media screen and (max-width: 576px) {
+// 380
+@media screen and (max-width: 380px) {
     .setting {
+        $panel: 100vw;
+
+        &__panel {
+            width: $panel;
+            left: -1 * $panel;
+
+            padding: 25px 20px;
+
+            &--open {
+                left: 0;
+            }
+
+            &-close {
+                top: 15px;
+                right: 20px;
+
+                width: 24px;
+                height: 24px;
+            }
+        }
 
     }
 }

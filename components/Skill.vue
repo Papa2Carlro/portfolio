@@ -4,7 +4,7 @@
             {{ index < 10 ? '0' + index : index }}
         </div>
 
-        <div class="skill__item-body" :class="{anim1, anim2}">
+        <div class="skill__item-body" ref="body" :class="{anim1, anim2}" :style="{height: height + 'px'}">
             <span class="skill__item-text">{{ text }}</span>
         </div>
     </li>
@@ -16,8 +16,15 @@ export default {
     props: ['index', 'text'],
     data: () => ({
         anim1: false,
-        anim2: false
+        anim2: false,
+
+        height: 0,
     }),
+    mounted() {
+        this.height = this.$refs.body.scrollHeight
+
+        window.addEventListener('resize', () => this.height = this.$refs.body.scrollHeight)
+    },
     methods: {
         mouseoverHandler() {
             this.anim1 = true

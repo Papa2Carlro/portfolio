@@ -94,15 +94,9 @@ export default {
         document.body.addEventListener('click', e => {
             const target = e.target
 
-            if (!target.closest('.setting')) this.open = false
+            if (!target.closest('.setting')) this.panelHandler('close')
             if (!target.closest('.setting__locale')) this.localeSelect = false
         })
-    },
-    watch: {
-        locale() {
-            this.localeSelect = false
-            this.$store.commit('store/setLocale', this.locale)
-        }
     },
     computed: {
         locales() {
@@ -110,7 +104,19 @@ export default {
         },
         localeLabel() {
             return this.locales.filter(local => local.value === this.locale)[0].label
+        }
+    },
+    watch: {
+        locale() {
+            this.localeSelect = false
+            this.$store.commit('store/setLocale', this.locale)
         },
+        animation() {
+            this.changeSetting('animation')
+        },
+        sliderSection() {
+            this.changeSetting('sliderSection')
+        }
     },
     methods: {
         panelHandler(action) {
@@ -126,6 +132,10 @@ export default {
                     document.body.classList.remove('lock')
                     break
             }
+        },
+
+        changeSetting(setting) {
+            this.$store.commit("store/changeSetting", {setting, body: this[setting]})
         }
     }
 }

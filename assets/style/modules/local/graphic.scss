@@ -2,7 +2,7 @@
     $parent: &;
     position: absolute;
 
-    left: 65%;
+    left: 70%;
     bottom: 70%;
 
     margin: 0;
@@ -52,27 +52,13 @@
 // 1200
 @include media-breakpoint-down(lg) {
     .graphic {
-
+        left: 75%;
     }
 }
 
 // 992
 @include media-breakpoint-down(md) {
     .graphic {
-
-    }
-}
-
-// 768
-@include media-breakpoint-down(sm) {
-    .graphic {
-
-    }
-}
-
-// 576
-@media screen and (max-width: 576px) {
-    .graphic {
-
+        display: none;
     }
 }

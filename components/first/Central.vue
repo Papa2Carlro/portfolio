@@ -1,5 +1,5 @@
 <template>
-    <div class="central">
+    <div class="central" :class="{noAnimation: !animation}">
         <div class="central__circle central__circle--top">
             <div class="central__circle-body">
                 <div class="central__l1">
@@ -79,18 +79,30 @@ export default {
         },
         bottomCode() {
             return [this.bottom1, this.bottom2, this.bottom3, this.bottom4, this.bottom5].join('')
+        },
+        animation() {
+            return this.$store.getters["store/getAnimation"]
         }
     },
     created() {
-        this.interval = setInterval(() => {
-            this[`top${this.random('index')}`] = this.random('bool')
-            this[`bottom${this.random('index')}`] = this.random('bool')
-        }, 350)
+        this.setAnimation()
+    },
+    watch: {
+        animation() {
+            this.animation ? this.setAnimation() : clearInterval(this.interval)
+        }
     },
     beforeDestroy() {
         clearInterval(this.interval)
     },
     methods: {
+        setAnimation() {
+            this.interval = setInterval(() => {
+                this[`top${this.random('index')}`] = this.random('bool')
+                this[`bottom${this.random('index')}`] = this.random('bool')
+            }, 350)
+        },
+
         random(type) {
             switch (type) {
                 case 'bool':

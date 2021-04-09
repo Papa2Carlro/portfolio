@@ -23,18 +23,30 @@ export default {
     computed: {
         lines() {
             return [this.line1, this.line2, this.line3, this.line4, this.line5, this.line6]
+        },
+        animation() {
+            return this.$store.getters["store/getAnimation"]
+        }
+    },
+    watch: {
+        animation() {
+            this.animation ? this.setAnimation() : clearInterval(this.interval)
         }
     },
     created() {
-        this.interval = setInterval(() => {
-            this[`line${this.random('line')}`] = this.random('height')
-            this[`line${this.random('line')}`] = this.random('height')
-        }, 400)
+        this.setAnimation()
     },
     beforeDestroy() {
         clearInterval(this.interval)
     },
     methods: {
+        setAnimation() {
+            this.interval = setInterval(() => {
+                this[`line${this.random('line')}`] = this.random('height')
+                this[`line${this.random('line')}`] = this.random('height')
+            }, 400)
+        },
+
         random(type) {
             switch (type) {
                 case 'line':

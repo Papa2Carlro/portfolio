@@ -1,6 +1,5 @@
 <template>
-    <section class="section who">
-
+    <section class="section who" :class="className">
         <div class="who__info">
             <div class="who__info-title">КТО ЕСТЬ Я?</div>
 
@@ -17,8 +16,9 @@
 <script>
 export default {
     name: 'Who',
+    props: ['className'],
     data: () => ({
-        text: ''
+        text: '',
     }),
     created() {
         this.$store.dispatch("store/getWhoMe")

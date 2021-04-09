@@ -20,13 +20,27 @@ export default {
         y: 0,
         dir: 'vertical'
     }),
+    computed: {
+        animation() {
+            return this.$store.getters["store/getAnimation"]
+        }
+    },
+    watch: {
+        animation() {
+            this.animation ? this.setAnimation() : clearInterval(this.interval)
+        }
+    },
     mounted() {
-        this.interval = setInterval(() => this.randomCoordinate(), 450)
+        this.setAnimation()
     },
     beforeDestroy() {
         clearInterval(this.interval)
     },
     methods: {
+        setAnimation() {
+            this.interval = setInterval(() => this.randomCoordinate(), 450)
+        },
+
         randomCoordinate() {
             const coordinate = this.dir === 'vertical' ? 'x' : 'y'
             const max = coordinate === 'x'

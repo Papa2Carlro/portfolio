@@ -9,7 +9,7 @@
         position: relative;
 
         width: 100%;
-        height: calc((560px - 155px) / 2);
+        height: calc((560px - 160px) / 2);
         overflow: hidden;
 
         &-body {
@@ -190,17 +190,6 @@
         }
     }
 
-    &__dots {
-        width: 400px;
-        height: 400px;
-
-        @include absolut-center;
-        animation: dots 25s infinite ease-in-out;
-
-        border-radius: 50%;
-        border: 7px dotted #fff;
-    }
-
     &__info {
         position: relative;
         width: 50vw;
@@ -246,12 +235,131 @@
             }
         }
     }
+
+    &.noAnimation {
+
+        #{$parent} {
+
+            &__l {
+
+                &1 {
+
+                    &-body {
+
+                        &::after {
+                            animation: none;
+                        }
+                    }
+
+                    #{$parent} {
+
+                        &__dot {
+                            animation: none;
+                        }
+                    }
+                }
+
+                &2 {
+
+                    &-body {
+
+                        &::before,
+                        &::after {
+                            animation: none;
+                        }
+                    }
+                }
+
+                &3 {
+
+                    &-body {
+
+                        &::after {
+                            animation: none;
+                        }
+                    }
+
+                    #{$parent} {
+
+                        &__dot {
+                            animation: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 // 1200
 @include media-breakpoint-down(lg) {
     .central {
+        $parent: &;
 
+        &__circle {
+            height: calc((500px - 140px) / 2);
+
+            &-body {
+                position: relative;
+                height: 500px;
+            }
+        }
+
+        &__l {
+
+            &1 {
+
+                &-body {
+                    width: 500px;
+                    height: 500px;
+                }
+            }
+
+            &2 {
+
+                &-body {
+                    width: 440px;
+                    height: 440px;
+                }
+            }
+
+            &3 {
+
+                &-body {
+                    width: 380px;
+                    height: 380px;
+                }
+            }
+        }
+
+        &__info {
+            width: 50vw;
+            height: 140px;
+
+            &-name {
+                font-size: 64px;
+                line-height: 100%;
+            }
+
+            &-code {
+                font-size: 30px;
+                line-height: 100%;
+
+                &--top {
+                    right: 55%;
+
+                    padding-bottom: 0;
+                    padding-left: 10px;
+                }
+
+                &--bottom {
+                    left: 55%;
+
+                    padding-top: 0;
+                    padding-right: 10px;
+                }
+            }
+        }
     }
 }
 
@@ -259,6 +367,22 @@
 @include media-breakpoint-down(md) {
     .central {
 
+        &__circle {
+            display: none;
+        }
+
+        &__info {
+            width: 80vw;
+            height: 140px;
+
+            &-name {
+                font-size: 64px;
+            }
+
+            &-code {
+                font-size: 30px;
+            }
+        }
     }
 }
 
@@ -266,6 +390,18 @@
 @include media-breakpoint-down(sm) {
     .central {
 
+        &__info {
+            width: 80vw;
+            height: 120px;
+
+            &-name {
+                font-size: 60px;
+            }
+
+            &-code {
+                font-size: 28px;
+            }
+        }
     }
 }
 
@@ -273,5 +409,16 @@
 @media screen and (max-width: 576px) {
     .central {
 
+        &__info {
+            width: 100vw;
+
+            &-name {
+                font-size: 50px;
+            }
+
+            &-code {
+                font-size: 26px;
+            }
+        }
     }
 }
