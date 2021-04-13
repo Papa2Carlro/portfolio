@@ -26,7 +26,7 @@ export const state = () => ({
     scrollType: null,
 
     settings: {
-        sliderSection: true,
+        sliderSection: false,
         animation: true,
         animationAdaptive: true,
         sound: true

@@ -5,17 +5,17 @@
 
         <main v-else class="page__main">
 
-            <Setting/>
+<!--            <Setting/>-->
 
-            <FistSection :class-name="className0"/>
+            <FistSection/>
 
-            <Who :class-name="className1"/>
+            <Who/>
 
-            <Work :class-name="className2"/>
+            <Work/>
 
-            <WhyMe :class-name="className3"/>
+            <WhyMe/>
 
-            <ContactMe :class-name="className4"/>
+            <ContactMe/>
 
         </main>
     </div>
@@ -51,8 +51,8 @@ export default {
         document.body.classList[this.sliderSetting ? 'add' : 'remove']('lock')
         document.body.classList[this.sliderSetting ? 'add' : 'remove']('lock-slider')
 
-        this.sensor = ('ontouchstart' in window)
-        document.addEventListener('wheel', this.wheel)
+        // this.sensor = ('ontouchstart' in window)
+        // document.addEventListener('wheel', this.wheel)
         this.loader = false
     },
     computed: {
